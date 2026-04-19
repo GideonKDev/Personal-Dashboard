@@ -50,6 +50,7 @@ The dashboard uses a two-column layout on desktop (≥768px) and stacks vertical
 | Name | Role |
 |------|------|
 | Members | Web Design & Development |
+| Kirui Gideon | Cyber Security |
 
 ## License
 
