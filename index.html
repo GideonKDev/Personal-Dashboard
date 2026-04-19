@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div class="dashboard-wrapper">
+        <div class="desktop-column">
+            <!-- Time Widget -->
+            <section class="widget clock-card">
+                <span class="widget-subtitle">Personal Dashboard</span>
+                <h1 id="clock" class="clock-display">00:00</h1>
+                <p id="date" class="date-display">TUESDAY, OCTOBER 24, 2024</p>
+            </section>
+
+            <!-- Quote Card -->
+            <section class="widget quote-card">
+                <div class="quote-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <i class="ph-fill ph-quotes"></i>
+                    <button id="refresh-quote" style="background: none; border: none; color: var(--accent); font-size: 1.5rem; cursor: pointer; transition: transform 0.2s; opacity: 0.7;"><i class="ph ph-arrows-clockwise"></i></button>
+                </div>
+                <div class="quote-content">
+                    <p id="quote-text" class="quote-text">Loading...</p>
+                    <div class="quote-footer">
+                        <div class="line-divider"></div>
+                        <span id="quote-author" class="quote-author"></span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="desktop-column">
+            <!-- Weather Card -->
+            <section class="widget weather-card" id="weather-content">
+                <div class="loader">Fetching...</div>
+            </section>
+
+        <!-- To-Do Section -->
+        <section class="widget todo-card">
+            <div class="widget-header">
+                <h2>To-Do List</h2>
+                <span id="task-count" class="pill-label">0 Tasks Remaining</span>
+            </div>
+            <div class="todo-input-container">
+                <input type="text" id="todo-input" placeholder="Add a focus task..." autocomplete="off">
+                <button id="add-todo-btn" class="primary-btn"><i class="ph ph-plus"></i></button>
+            </div>
+            <ul id="todo-list" class="todo-list">
+                <!-- Task items injected here -->
+            </ul>
+        </section>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

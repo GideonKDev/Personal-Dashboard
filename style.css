@@ -1,0 +1,205 @@
+:root {
+  --bg-color: #0c1114; /* Desktop Zenith dark body */
+  --card-bg: #12191d; /* Desktop Zenith card */
+  --card-bg-light: #1c262b; /* Subtle inner UI elements */
+  --accent: #22d3ee; /* Zenith cyan */
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+  --font-family: 'Inter', sans-serif;
+  --danger-color: #ef4444;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: var(--bg-color);
+    font-family: var(--font-family);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+
+
+/* Master Layout Grid */
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem 2rem 1.5rem;
+}
+
+.desktop-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.widget {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+
+.widget-subtitle {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 2rem;
+}
+
+/* Clock Area */
+.clock-display {
+    font-size: 6.5rem;
+    font-weight: 200;
+    color: var(--text-main);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+.date-display {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    font-weight: 400;
+}
+
+
+
+/* Quote Area */
+.quote-card { 
+    display: flex; flex-direction: column; justify-content: flex-start;
+}
+.quote-header i { font-size: 3rem; color: var(--accent); margin-bottom: 2rem; }
+.quote-text {
+    font-size: 1.5rem; font-style: italic; font-weight: 300; line-height: 1.4; color: var(--text-main); margin-bottom: 1.5rem;
+}
+.quote-footer { display: flex; align-items: center; gap: 1rem; }
+.line-divider { height: 1px; width: 25px; background: rgba(255, 255, 255, 0.2); }
+.quote-author { color: var(--text-dim); font-size: 0.85rem; }
+
+
+/* Weather Area */
+
+.weather-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.weather-city { display: flex; flex-direction: column; gap: 0.2rem; }
+.weather-city-name { font-weight: 600; font-size: 1.15rem; }
+.weather-city-desc { font-size: 0.8rem; color: var(--text-dim); }
+.weather-top i { font-size: 1.8rem; color: var(--accent); }
+.weather-main { margin: 2.5rem 0 2rem 0; font-size: 5.5rem; font-weight: 200; line-height: 1; }
+.weather-bottom { display: flex; gap: 1rem; }
+.weather-stat { background: var(--card-bg-light); padding: 0.8rem 1.2rem; border-radius: 12px; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+.weather-stat-label { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); display: flex; align-items: center; gap: 0.4rem; }
+.weather-stat-label i { font-size: 0.9rem; }
+.weather-stat-val { font-weight: 600; font-size: 0.95rem; }
+
+
+/* To-Do Area */
+
+.widget-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; }
+.widget-header h2 { font-size: 1.3rem; font-weight: 600; }
+.pill-label { background: rgba(255, 255, 255, 0.08); padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.65rem; color: var(--text-dim); font-weight: 500; }
+
+.todo-input-container { position: relative; margin-bottom: 2rem; }
+#todo-input {
+    width: 100%; border: none; border-radius: 12px; padding: 1.1rem 1.5rem;
+    background: var(--card-bg-light); color: var(--text-main); font-size: 0.9rem; outline: none; transition: background 0.2s;
+}
+#todo-input::placeholder { color: #475569; }
+#todo-input:focus { background: rgba(28, 38, 43, 0.8); }
+
+.primary-btn {
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    background: var(--accent); color: #000; border: none; border-radius: 50%;
+    width: 32px; height: 32px; display: flex; justify-content: center; align-items: center;
+    font-size: 1.1rem; cursor: pointer; font-weight: bold;
+}
+
+.todo-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.todo-item { display: flex; align-items: center; gap: 1.2rem; padding: 0.5rem 0.5rem 0.5rem 0; }
+.check-btn { background: none; border: none; font-size: 1.5rem; color: #334155; cursor: pointer; display: flex; align-items: center; transition: color 0.2s; }
+.todo-item.completed .check-btn { color: var(--accent); }
+.todo-text { font-size: 0.9rem; font-weight: 400; color: var(--text-main); transition: color 0.2s, text-decoration 0.2s; }
+.todo-item.completed .todo-text { text-decoration: line-through; color: #475569; }
+
+.high-tag { background: rgba(34, 211, 238, 0.1); color: var(--accent); font-size: 0.5rem; padding: 0.25rem 0.5rem; border-radius: 8px; letter-spacing: 1px; margin-left: auto; font-weight: 600; }
+.completed-tag { color: #475569; font-size: 0.5rem; margin-left: auto; letter-spacing: 1px; font-weight: 500; }
+.delete-btn { background: none; border: none; color: #334155; font-size: 1.2rem; cursor: pointer; margin-left: 0.5rem; }
+.delete-btn:hover { color: var(--danger-color); }
+
+
+/* Animations */
+.fade-in { animation: fadeIn 0.4s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.loader { width: 100%; text-align: center; color: var(--text-dim); font-size: 0.9rem; padding: 2rem 0; }
+
+
+
+/* =========================================
+   RESPONSIVE DESIGN (Desktop defaults to above, overrides below)
+   ========================================= */
+
+@media(min-width: 768px) {
+    body { 
+        padding: 2rem; 
+        justify-content: center; 
+    }
+
+    .dashboard-wrapper {
+        flex-direction: row;
+        align-items: stretch;
+        padding: 2rem;
+    }
+    
+    .desktop-column:first-child {
+        flex: 1.15;
+    }
+    
+    .desktop-column:last-child {
+        flex: 1;
+    }
+}
+
+/* Mobile scaling - same design, just smaller */
+@media(max-width: 767px) {
+    body { padding: 1rem 0; }
+
+    .dashboard-wrapper { padding: 0 1rem 2rem 1rem; gap: 1rem; }
+    .desktop-column { gap: 1rem; }
+    .widget { padding: 1.5rem; border-radius: 16px; }
+
+    /* Clock scales down */
+    .clock-display { font-size: 3.5rem; }
+    .date-display { font-size: 0.85rem; margin-bottom: 0; }
+    .widget-subtitle { margin-bottom: 1rem; }
+
+    /* Weather scales down */
+    .weather-main { font-size: 3.5rem; margin: 1.5rem 0 1.2rem 0; }
+    .weather-city-name { font-size: 1rem; }
+    .weather-bottom { flex-direction: row; gap: 0.8rem; }
+    .weather-stat { padding: 0.6rem 0.8rem; }
+
+    /* Quote scales down */
+    .quote-header i { font-size: 2rem; margin-bottom: 1rem; }
+    .quote-text { font-size: 1.1rem; margin-bottom: 1rem; }
+
+    /* To-Do scales down */
+    .widget-header h2 { font-size: 1.1rem; }
+    .todo-item { gap: 0.8rem; }
+    .todo-text { font-size: 0.85rem; }
+    #todo-input { padding: 1rem 1.2rem; font-size: 0.85rem; }
+}
+
+/* Very small phones */
+@media(max-width: 400px) {
+    .clock-display { font-size: 2.8rem; }
+    .weather-main { font-size: 2.8rem; }
+    .quote-text { font-size: 0.95rem; }
+    .widget { padding: 1.2rem; }
+}
